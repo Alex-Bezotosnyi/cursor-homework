@@ -9,6 +9,7 @@ let productSum = productNike + productAdidas + productPuma;
 document.writeln(`</br>Вартість всіх товарів: ${productSum}`);
 
 let productSumNoPenny = Math.floor(productNike) + Math.floor(productAdidas) + Math.floor(productPuma);
+document.writeln(`</br>Округлення в меньшу сторону: ${productSumNoPenny}`);
 document.writeln(`</br>Сума товарів округлена до сотень: ${Math.round((productSumNoPenny) / 100) * 100}`);
 
 document.writeln(`</br>Сума товарів парна чи непарна? ${productSumNoPenny % 2 === 0}`);
