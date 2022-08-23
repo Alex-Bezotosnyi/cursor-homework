@@ -6,7 +6,7 @@ document.writeln(`</br>Максимальне число: ${Math.max(productNike
 document.writeln(`</br>Мінімальне число: ${Math.min(productNike, productAdidas, productPuma)}`);
 
 let productSum = productNike + productAdidas + productPuma;
-console.log(`</br>Вартість всіх товарів: ${productSum}`);
+document.writeln(`</br>Вартість всіх товарів: ${productSum}`);
 
 let productSumNoPenny = Math.floor(productNike) + Math.floor(productAdidas) + Math.floor(productPuma);
 document.writeln(`</br>Сума товарів округлена до сотень: ${Math.round((productSumNoPenny) / 100) * 100}`);
@@ -19,6 +19,8 @@ document.writeln(`</br>Середнє значення цін, округлен�
 
 //Випадкова змінна (знижка) від 1 до 100
 const RANDOM_DISCOUNT = (100 - 1) * Math.random() + 1;
+document.writeln(`</br>Знижка: ${RANDOM_DISCOUNT.toFixed(2)} %`);
+document.writeln(`</br>Сума до оплати зі знижкою: ${(productSum - RANDOM_DISCOUNT).toFixed(2)}`);
 
 //Випадкова знижка відповідно до Вартості всіх товарів
 let discount = ((productSum * RANDOM_DISCOUNT) / 100).toFixed(2);
