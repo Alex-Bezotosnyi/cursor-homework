@@ -86,8 +86,8 @@ document.writeln(`<p><b>Функція №3:</b> ${formatName("оЛЕКсанД�
 document.writeln(`<p><b>Функція №4:</b> ${countSum(1000)}</p>`);
 document.writeln(`<p><b>Функція №5:</b> ${getRandomNumber(10, 20)}</p>`);
 document.writeln(`<p><b>Функція №6:</b> ${countLetter("а", "Асталавіста")}</p>`);
-document.writeln(`<p><b>Функція №7:</b> ${convertCurrency("2500uah")}</p>`);
-document.writeln(`<p><b>Функція №8:</b> ${getRandomPassword(4)}</p>`);
+document.writeln(`<p><b>Функція №7:</b> (враховуючи інші валюти та регістр) ${convertCurrency("2500uah")}</p>`);
+document.writeln(`<p><b>Функція №8:</b> (враховуючи 8 символів за замовчуванням) ${getRandomPassword(4)}</p>`);
 document.writeln(`<p><b>Функція №9:</b> ${deleteLetters("a", "blablabla")}</p>`);
 document.writeln(`<p><b>Функція №10:</b> ${isPalyndrom("Я несу гусеня")}</p>`);
 document.writeln(`<p><b>Функція №11:</b> ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}</p>`);
