@@ -1,12 +1,23 @@
+h1 {
+    text-align: center;
+    font-family: Poppins, sans-serif;
+}
+
 .wrapper {
     display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     gap: 2px;
     grid-template-columns: repeat(5, 50px);
-    justify-content: center;
-    align-items: center;
+    height: 80vh;
 }
 
 .box {
     height: 50px;
     border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-family: Poppins, sans-serif;
+    color: #3e3e3e;
 }
