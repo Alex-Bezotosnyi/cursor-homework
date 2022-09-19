@@ -5,12 +5,22 @@ function getMaxDigit(number) {
 }
 
 // The 2nd Function
+// умови виконання при (number = +-) та (degree = +-)
 function checkDegree(number, degree) {
     let result = 1;
-    for (let i = 1; i <= degree; i++) {
-        result *= number;
+    if (degree > 0) {
+        for (let i = 1; i <= degree; i++) {
+            result *= number;
+        }
+        return degree % 2 === 0 ? result : result;
+    } else if (degree < 0) {
+        for (let i = -1; degree <= i; i--) {
+            result *= number;
+        }
+        return degree % 2 === 0 ? (1 / result) : (1 / result);
+    } else {
+        return 1;
     }
-    return result;
 }
 
 // The 3rd Function
@@ -54,7 +64,7 @@ function getRandomPassword(num) {
     if (num) {
         return Math.random().toFixed(num).split('.')[1];
     } else {
-        return Math.random().toFixed(8).split('.')[1];
+        return getRandomPassword(8);
     }
 }
 
@@ -81,7 +91,7 @@ function deleteDuplicateLetter(str) {
 
 // Вивід результатів виконання функцій
 document.writeln(`<p><b>Функція №1:</b> ${getMaxDigit(385)}</p>`);
-document.writeln(`<p><b>Функція №2:</b> ${checkDegree(5, 3)}</p>`);
+document.writeln(`<p><b>Функція №2:</b> ${checkDegree(2, -3)}</p>`);
 document.writeln(`<p><b>Функція №3:</b> ${formatName("оЛЕКсанДр")}</p>`);
 document.writeln(`<p><b>Функція №4:</b> ${countSum(1000)}</p>`);
 document.writeln(`<p><b>Функція №5:</b> ${getRandomNumber(10, 20)}</p>`);
