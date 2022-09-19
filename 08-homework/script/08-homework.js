@@ -37,7 +37,7 @@ class Student {
     }
 
     recover() {
-        let marks = true;
+        let marks = false;
         return marks;
     }
 }
