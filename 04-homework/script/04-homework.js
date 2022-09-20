@@ -4,11 +4,12 @@ const marks = [4, 5, 5, 3, 4, 5];
 
 // Завдання №1
 function pairsOfStudents(students) {
-    const girlsNames = students.filter((name) => name.charAt(name.length - 1) === "а");
-    const boysNames = students.filter((name) => name.charAt(name.length - 1) !== "а");
-    const pairsOfStudentsResult = boysNames.map(name => [name, girlsNames[boysNames.indexOf(name)]]);
-
-    return pairsOfStudentsResult;
+    const girlsNames = [];
+    const boysNames = [];
+    const pairsOfStudentsResult = students.map((name, i) => {
+        name.charAt(name.length - 1) === "а" ? girlsNames.push(name) : boysNames.push(name);
+    });
+    return boysNames.map(name => [name, girlsNames[boysNames.indexOf(name)]]);
 }
 
 const pairsOfStudentsResult = pairsOfStudents(students);
@@ -36,10 +37,11 @@ console.log(studentsMarksResult);
 
 // Завдання №4
 function studentsMarksRandom(pairsOfStudentsAndThemesResult) {
-        let randomMarks = Math.floor(Math.random() * 5) + 1;
-        let studentsMarksRandomResult = pairsOfStudentsAndThemesResult.map(name => [name.join(", "), randomMarks]);
+    let studentsMarksRandomResult = pairsOfStudentsAndThemesResult
+        .map(name => name
+            .concat(Math.floor(Math.random() * 5) + 1));
 
-        return studentsMarksRandomResult;
+    return studentsMarksRandomResult;
 }
 
 const studentsMarksRandomResult = studentsMarksRandom(pairsOfStudentsAndThemesResult);
