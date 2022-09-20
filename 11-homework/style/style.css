@@ -3,22 +3,24 @@ h1 {
     font-family: Poppins, sans-serif;
 }
 
-.wrapper {
+div#melody {
     display: grid;
     justify-content: center;
     align-content: center;
     align-items: center;
     gap: 5px;
     grid-template-columns: repeat(6, 50px);
-    height: 80vh;
+    height: 70vh;
 }
 
-.box {
-    height: 50px;
-    border-radius: 5px;
-    border: 2px solid darkred;
-    text-align: center;
-    line-height: 50px;
+button {
     font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
     color: #3e3e3e;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #3e3e3e;
+    height: 50px;
+    background-color: #e8f3ff;
 }
