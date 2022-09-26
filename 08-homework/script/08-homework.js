@@ -4,6 +4,7 @@ class Student {
         this.course = course;
         this.fullName = fullName;
         this.marks = marks;
+        this.isDismiss = true;
     }
 
     getInfo() {
@@ -25,20 +26,15 @@ class Student {
     }
 
     getAverageMark() {
-        let dismiss = this.dismiss();
-        let recover = this.recover();
-        return dismiss === false && recover === false
-            ? null : this.marks.reduce((a, b) => a + b) / this.marks.length;
+        return this.isDismiss === false ? null : this.marks.reduce((a, b) => a + b) / this.marks.length;
     }
 
     dismiss() {
-        let marks = false;
-        return marks;
+        this.isDismiss = false;
     }
 
     recover() {
-        let marks = true;
-        return marks;
+        this.isDismiss = true;
     }
 }
 
@@ -47,17 +43,16 @@ class Student {
 class BudgetStudent extends Student {
     constructor(university, course, fullName, marks, getScholarship) {
         super(university, course, fullName, marks);
-        this.getScholarship = getScholarship;
+        setInterval(() => {
+            console.log(this.getScholarship())
+        }, 3000)
     }
 
-////// ідеї закінчилися щодо getInterval
-// https://developer.mozilla.org/ru/docs/Web/API/setInterval#%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0_%D1%81_this
     getScholarship() {
-        let message = "Ви отримали 1400 грн. стипендії";
-        // return window.setInterval(`getScholarship`, 1000)
-        return this.getAverageMark() >= 4.0 ? message : "Ви НЕ отримали 1400 грн. стипендії";
+        return this.getAverageMark() >= 4.0
+            ? "Ви отримали 1400 грн. стипендії"
+            : "Ви НЕ отримали 1400 грн. стипендії";
     }
-
 }
 
 const userA = new Student("Вища Школа Психотерапії м.Одеса", 1, "Остап Родоманський Бендер", [5, 4, 4, 5]);
@@ -65,5 +60,4 @@ const userB = new BudgetStudent("Середня Школа Психотерап�
 userA.marks = 5;
 
 console.log(userA.getAverageMark(userA.marks));
-// console.log(userA.getInfo())
 console.log(userB.getInfo())
