@@ -12,14 +12,14 @@ function checkDegree(number, degree) {
         for (let i = 1; i <= degree; i++) {
             result *= number;
         }
-        return degree % 2 === 0 ? result : result;
+        return result;
     } else if (degree < 0) {
         for (let i = -1; degree <= i; i--) {
             result *= number;
         }
-        return degree % 2 === 0 ? (1 / result) : (1 / result);
+        return 1 / result;
     } else {
-        return 1;
+        return result;
     }
 }
 
@@ -61,11 +61,7 @@ function convertCurrency(currency) {
 
 // The 8th function
 function getRandomPassword(num) {
-    if (num) {
-        return Math.random().toFixed(num).split('.')[1];
-    } else {
-        return getRandomPassword(8);
-    }
+    return Math.random().toFixed(num).split('.')[1];
 }
 
 // The 9th function
@@ -91,13 +87,13 @@ function deleteDuplicateLetter(str) {
 
 // Вивід результатів виконання функцій
 document.writeln(`<p><b>Функція №1:</b> ${getMaxDigit(385)}</p>`);
-document.writeln(`<p><b>Функція №2:</b> ${checkDegree(2, -3)}</p>`);
+document.writeln(`<p><b>Функція №2:</b> ${checkDegree(-2, -3)}</p>`);
 document.writeln(`<p><b>Функція №3:</b> ${formatName("оЛЕКсанДр")}</p>`);
 document.writeln(`<p><b>Функція №4:</b> ${countSum(1000)}</p>`);
 document.writeln(`<p><b>Функція №5:</b> ${getRandomNumber(10, 20)}</p>`);
 document.writeln(`<p><b>Функція №6:</b> ${countLetter("а", "Асталавіста")}</p>`);
 document.writeln(`<p><b>Функція №7:</b> (враховуючи інші валюти та регістр) ${convertCurrency("2500uah")}</p>`);
-document.writeln(`<p><b>Функція №8:</b> (враховуючи 8 символів за замовчуванням) ${getRandomPassword(4)}</p>`);
+document.writeln(`<p><b>Функція №8:</b> (враховуючи 8 символів за замовчуванням) ${getRandomPassword(8)}</p>`);
 document.writeln(`<p><b>Функція №9:</b> ${deleteLetters("a", "blablabla")}</p>`);
 document.writeln(`<p><b>Функція №10:</b> ${isPalyndrom("Я несу гусеня")}</p>`);
 document.writeln(`<p><b>Функція №11:</b> ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}</p>`);
