@@ -5,6 +5,7 @@ class Student {
         this.fullName = fullName;
         this.marks = marks;
         this.isDismiss = true;
+        this.isRecover = true;
     }
 
     getInfo() {
@@ -26,15 +27,15 @@ class Student {
     }
 
     getAverageMark() {
-        return this.isDismiss === false ? null : this.marks.reduce((a, b) => a + b) / this.marks.length;
+        return this.isDismiss === this.isRecover ? this.marks.reduce((a, b) => a + b) / this.marks.length : null
     }
 
     dismiss() {
-        this.isDismiss = false;
+        this.isDismiss = true;
     }
 
     recover() {
-        this.isDismiss = true;
+        this.isRecover = true;
     }
 }
 
