@@ -63,10 +63,10 @@ console.log(filterEvenNumbersArray);
 // Завдання №6
 function countPositiveNumbers(...numbers) {
     let countPositiveNumbersArray = [...numbers];
-    return countPositiveNumbersArray.filter(el => el > 0).length;
+    return countPositiveNumbersArray.filter(el => Number.isInteger(el) && el > 0).length;
 }
 
-const countPositiveNumbersArray = countPositiveNumbers(1, -2, 3, -4, -5, 6);
+const countPositiveNumbersArray = countPositiveNumbers(1, true, 3, -4, -5, 6);
 console.log(countPositiveNumbersArray);
 
 // Завдання №7
@@ -80,8 +80,13 @@ console.log(getDividedByFiveArray);
 
 // Завдання №8
 function replaceBadWords(string) {
-    let badWords = /shit|fuck/gi;
-    return string.replaceAll(badWords, "****");
+    let badWords = ["fuck", "shit"];
+    badWords.concat(badWords)
+        .forEach((el) => (string = string
+            .replaceAll(el, "*"
+                .repeat(el.length)))
+        );
+    return string;
 }
 
 const replaceBadWordsResult = replaceBadWords("Are you fucking kidding? Holy shit!");
@@ -101,9 +106,11 @@ function generateCombinations(word) {
         return word.length === 2 ? [word, word[1] + word[0]] : [word];
     }
     word = word.split("").reduce((acc, letter, num) =>
-        acc.concat(generateCombinations(word.slice(0, num) + word.slice(num + 1)).map(char => letter + char)), []);
-    return word;
+        acc.concat(generateCombinations(word.slice(0, num) + word.slice(num + 1))
+            .map(char => letter + char)), []);
+
+    return word.filter((el, ind) => word.indexOf(el) !== ind);
 }
 
-const generateCombinationsResult = generateCombinations("man");
+const generateCombinationsResult = generateCombinations("olo");
 console.log(generateCombinationsResult);
