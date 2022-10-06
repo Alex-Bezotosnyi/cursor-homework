@@ -9,7 +9,6 @@ async function getRandomChinese(length) {
         i++;
         let sign = +Date.now().toString().slice(-5);
         char += String.fromCharCode(sign);
-        new Promise(resolve => setTimeout(resolve, 50))
         await delay();
     }
     console.log(char);
