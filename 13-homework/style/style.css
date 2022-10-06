@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 h1 {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -20,6 +24,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -90,6 +96,37 @@ button:hover {
     background: #22635b;
 }
 
+.nav-items-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+}
+
+#chooseFilm__button {
+    color: white;
+    background: #db8a28;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#chooseFilm__button:hover {
+    background: #8e5c20;
+}
+
+.choose__film_item {
+    border-radius: 5px;
+    border: 1px solid #db8a28;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 3px;
+}
+
 .image__logo {
     width: 150px;
     padding: 20px;
@@ -116,4 +153,24 @@ button:hover {
 .card-planet ul {
     list-style-type: none;
     padding: 0 5px 0 5px;
+}
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+.footer__section_item {
+    height: 100px;
+}
+
+.footer {
+    background: #292521;
+    flex-shrink: 0;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    gap: 100px;
+    font-family: 'Montserrat', sans-serif;
 }

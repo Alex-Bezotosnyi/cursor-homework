@@ -11,32 +11,54 @@
     <title>Star Wars API</title>
 </head>
 <body>
-<div class="header">
-    <div class="logo">
-        <img class="image__logo" src="image/logo.png" alt="logo">
+<div class="wrapper">
+    <div class="header">
+        <div class="logo">
+            <img class="image__logo" src="image/logo.png" alt="logo">
+        </div>
+        <h1>Homework #13 - Робота з сервером</h1>
     </div>
-    <h1>Homework #13 - Робота з сервером</h1>
+    <nav>
+        <div class="nav-items">
+            <h3>Фільми та персонажі
+                <div id="btn">
+                    <button id="people-next" type="button">Отримати інформацію</button>
+                    <button id="wookiee" type="button"><img class="wookiee-button" src="image/wookiee.svg"></img>Wookiee
+                    </button>
+                </div>
+            </h3>
+            <div class="nav-items-form">
+                <form class="nav-items-form">
+                    <h5>Виберіть фільм:</h5>
+                    <div>
+                        <select id="chooseFilm" class="choose__film_item">
+                            <option hidden></option>
+                        </select>
+                        <input type="button" id="chooseFilm__button" value="Вибрати">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="nav-items">
+            <h3>Планети
+                <div class="nav__planets">
+                    <button id="planets-next" type="button">Отримати інформацію >></button>
+                </div>
+            </h3>
+        </div>
+    </nav>
+    <main>
+        <div id="main-main" class="main"></div>
+    </main>
 </div>
-<nav>
-    <div class="nav-items">
-        <h3>Фільми та персонажі
-            <div id="btn">
-                <button id="people-next" type="button">Отримати інформацію</button>
-                <button id="wookiee" type="button"><img class="wookiee-button" src="image/wookiee.svg"></img>Wookiee</button>
-            </div>
-        </h3>
+<footer class="footer">
+    <div class="footer__section_image">
+        <img class="footer__section_item" src="image/footer-image.png" alt="footer">
     </div>
-    <div class="nav-items">
-        <h3>Планети
-            <div class="nav__planets">
-                <button id="planets-next" type="button">Отримати інформацію >></button>
-            </div>
-        </h3>
+    <div class="footer__section_info">
+        <h1 class="footer__section_info_item">STAR WARS API</h1>
     </div>
-</nav>
-<main>
-    <div id="main-main" class="main"></div>
-</main>
+</footer>
 <script src="script/script.js">
 </script>
 </body>
