@@ -79,17 +79,20 @@ const getDividedByFiveArray = getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 
 console.log(getDividedByFiveArray);
 
 // Завдання №8
-function replaceBadWords(string) {
+function replaceBadWords(string, ...newBadWords) {
     let badWords = ["fuck", "shit"];
-    badWords.concat(badWords)
-        .forEach((el) => (string = string
-            .replaceAll(el, "*"
-                .repeat(el.length)))
-        );
-    return string;
+    badWords.concat(newBadWords.flat())
+        .forEach((el) => {
+            string = string
+                .toLowerCase()
+                .replaceAll(el, "*"
+                    .repeat(el.length))
+        });
+
+    return `${"Bad Words: " + string + " New Bad Words: " + newBadWords}`;
 }
 
-const replaceBadWordsResult = replaceBadWords("Are you fucking kidding? Holy shit!");
+const replaceBadWordsResult = replaceBadWords("Are you fucking kidding? Holy shit! SShitt!", "hol");
 console.log(replaceBadWordsResult);
 
 // Завдання №9
@@ -102,15 +105,14 @@ console.log(divideByThreeResult);
 
 // Завдання №10
 function generateCombinations(word) {
-    if (word.length <= 2) {
-        return word.length === 2 ? [word, word[1] + word[0]] : [word];
+    if (word.length < 2) {
+        return word.length === 1 ? [word] : [word, word[1] + word[0]];
     }
     word = word.split("").reduce((acc, letter, num) =>
         acc.concat(generateCombinations(word.slice(0, num) + word.slice(num + 1))
             .map(char => letter + char)), []);
-
-    return word.filter((el, ind) => word.indexOf(el) !== ind);
+    return [...new Set(word)]
 }
 
-const generateCombinationsResult = generateCombinations("olo");
+const generateCombinationsResult = generateCombinations("man");
 console.log(generateCombinationsResult);
