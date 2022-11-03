@@ -5,7 +5,6 @@ class Student {
         this.fullName = fullName;
         this.marks = marks;
         this.isDismiss = true;
-        this.isRecover = true;
     }
 
     getInfo() {
@@ -27,7 +26,7 @@ class Student {
     }
 
     getAverageMark() {
-        return this.isDismiss === this.isRecover ? this.marks.reduce((a, b) => a + b) / this.marks.length : null
+        return this.isDismiss ? this.marks.reduce((a, b) => a + b) / this.marks.length : null
     }
 
     dismiss() {
@@ -35,7 +34,7 @@ class Student {
     }
 
     recover() {
-        this.isRecover = true;
+        this.isDismiss = false;
     }
 }
 
@@ -50,7 +49,7 @@ class BudgetStudent extends Student {
     }
 
     getScholarship() {
-        return this.getAverageMark() >= 4.0
+        return this.getAverageMark() >= 4.0 && this.isDismiss
             ? "Ви отримали 1400 грн. стипендії"
             : "Ви НЕ отримали 1400 грн. стипендії";
     }
